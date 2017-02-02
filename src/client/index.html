@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+<head>
+    <title>Mean Stack Template</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/fontstyle.css"/>
+
+</head>
+<body>
+    <!--This comes from <views>/...-->
+    <div ng-include="'/app/layout/topnav.html'"></div>
+
+    <div ng-view></div>
+
+    <div ng-include="'/app/layout/footer.html'"></div>
+
+    <!-- Vendor Scripts -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!--My scripts-->
+    <script src="/app/app.js"></script>
+    <script src="/app/champs/ChampsCtrl.js"></script>
+    <script src="/app/core/riotApiService.js"></script>
+
+</body>
+</html>

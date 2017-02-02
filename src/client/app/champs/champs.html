@@ -1,0 +1,16 @@
+<div class="container" style="margin-top:5%;">
+	<!-- Maybe should put this into a directive-->
+	<!--Sizing may be applied to thead only, all td will follow-->
+	<!--<thead>--> <!-- Maybe use this for Job Position -->
+		<!--<td>{{ job }}</td>-->
+		<!--<td>A</td>-->
+	<!--</thead>-->
+	<div class="well">
+		<table class="table table-condensed">
+			<tr ng-repeat="(key, value) in rc.rito.data">
+				<td  class="col-md-2"><strong>{{ key }}</strong></td>
+				<td class="col-md-9"> {{ value }}</td>
+			</tr>
+		</table>
+	</div>
+</div>
