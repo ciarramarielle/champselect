@@ -1,7 +1,7 @@
 // This is where I can configure EXPRESSJS.
 var express = require("express"),
     bodyParser = require("body-parser"),
-    router = express.Router(),
+    // router = express.Router(),
     request = require("request");
 
 module.exports = function(app, config) {
@@ -34,22 +34,25 @@ module.exports = function(app, config) {
     app.set('view engine', 'html');
     app.engine('html', require('ejs').renderFile);
 
-    router.get("/", function(req, res) {
+
+    app.get("/", function(req, res) {
         res.render("index.html");// looks inside VIEWS
     });
 
-    router.get('/api/riot/getChampions', function(req, res) {
+
+	/* RIOT API ROUTES */
+	//FIXME: how come this doesn't work :( --> require('./routes/riotapi.js')(app);
+    app.get('/api/riot/getChampions', function(req, res) {
         request(`https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=${config.riot_api_key}`,
           function (err, response, body) {
             if (err) {
-              res.send("oops");
+              res.send(Error('Not able to find champion data.'));
             }
             res.send(body);
           }
         )
     });
 
-    app.use('/', router);
 
     // For now, route everything else to <views>/index.html
     app.get("*", function(req, res) {
@@ -57,6 +60,6 @@ module.exports = function(app, config) {
         // looks inside VIEWS
     });
 
-    module.exports = router
+    // module.exports = router
 
 };

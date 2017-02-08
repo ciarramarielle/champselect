@@ -15,7 +15,10 @@
               function(data, status, headers, config) {
                   // called asynchronously if an error occurs
                   // or server returns response with an error status.
-              });
+              })
+				.catch(function(e) {
+					console.log("Error: " + e);
+				});
       }
 
 
