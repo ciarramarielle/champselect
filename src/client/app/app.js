@@ -8,12 +8,17 @@ angular
         //      Right now, <views> = mean_start/src/client/
         $locationProvider.html5Mode(true);
         $routeProvider
-            .when("/", {
-                templateUrl: "app/home/home.html"
-            })
-	    .when("/champs/", {
-	    	templateUrl: "app/champs/champs.html",
-            controller: "ChampsCtrl",
-            controllerAs: "rc"
-	    })
+	        .when("/", {
+	            templateUrl: "app/home/home.html"
+	        })
+		    .when("/champs/", {
+		    	templateUrl: "app/champs/champs.html",
+	            controller: "ChampsCtrl",
+	            controllerAs: "rc"
+		    })
+			.when("/summoner/:summonerName/", { // summoner route doesn't work in summoner.html
+				templateUrl: "app/summoner/summoner.html",
+				controller: "SummonerCtrl",
+				controllerAs: "sc"
+			})
     });

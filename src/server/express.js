@@ -41,7 +41,6 @@ module.exports = function(app, config) {
 
 
 	/* RIOT API ROUTES */
-	//FIXME: how come this doesn't work :( --> require('./routes/riotapi.js')(app);
     app.get('/api/riot/getChampions', function(req, res) {
         request(`https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=${config.riot_api_key}`,
           function (err, response, body) {
@@ -52,6 +51,20 @@ module.exports = function(app, config) {
           }
         )
     });
+
+	// app.get('/api/riot/getSummoner/:summonerName', function(req, res) {
+	app.get('/api/riot/getSummoner/:summonerName', function(req, res) {
+		// let name = 'prxncess'
+		// console.log(req.params.summonerName);
+		request(`https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/${req.params.summonerName}?api_key=${config.riot_api_key}`,
+			function(err, response, body) {
+	            if (err) {
+	              res.send(Error('Not able to find summoner data.'));
+	            }
+	            // res.send({username: request.username, body: body});
+				res.send(body);
+		})
+	});
 
 
     // For now, route everything else to <views>/index.html

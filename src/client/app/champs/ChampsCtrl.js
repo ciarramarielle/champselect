@@ -7,6 +7,7 @@ function ChampsCtrl($scope, riotApiService) {
 	var vm = this;
 	// vm.resumeData = dataService.fakeResumeData();
 	var champions = []
+	vm.summonerName = ''
 
 	riotApiService.getChampions()
     .then(function(data){
@@ -19,7 +20,15 @@ function ChampsCtrl($scope, riotApiService) {
         return data.data;
     });
 
-	console.log(vm.champions);
+	// get summoner name from user input
+	riotApiService.getSummoner("prxncess")
+	.then(function(data) {
+		// data --> summonerName
+		vm.summonerName = data.data
+		console.log('getSummoner: ' + data.data);
+		return data.data;
+	});
+
 
 
 }
