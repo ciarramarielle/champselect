@@ -21,4 +21,9 @@ angular
 				controller: "SummonerCtrl",
 				controllerAs: "sc"
 			})
+			.when("/summoner/", { // summoner route doesn't work in summoner.html
+				templateUrl: "app/summoner/summoner.html",
+				controller: "SummonerCtrl",
+				controllerAs: "sc"
+			})
     });

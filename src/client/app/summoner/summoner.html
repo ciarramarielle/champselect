@@ -1,8 +1,15 @@
 <div class="container center-block" style="margin-top: 5%;">
 	<h1>Hello</h1>
+	<form class="form-inline">
+		  <div class="form-group">
+		    <label for="summoner">Summoner Name:</label>
+		    <input type="text" class="form-control" id="summoner" ng-model="sc.summoner">
+		  </div>
+		  <a type="submit" class="btn btn-default" href="/summoner/{{sc.summoner}}">Submit</a>
+	</form>
 	<!-- TODO: get summoner name from user input -->
 	<!-- <input type="text" ng-model="" -->
-	<ul ng-repeat="(key, value) in sc.summonerName">
+	<ul ng-if="sc.summonerName" ng-repeat="(key, value) in sc.summonerName">
 		<li>{{key}} | {{value}}</li>
 	</ul>
 </div>
