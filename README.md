@@ -14,3 +14,8 @@ This is a place for me to practice using MEAN Stack web development with externa
 ##### NOTE: You need a file called .env, with the following content in ONE license
 ```RIOT_API_KEY=your-api-key```
 > Fill in `your-api-key` with your development key.
+
+
+##### TODO:
+1. Fix summoner/<name> to trim all whitespace and special characters
+2. Allow pressing enter to submit summoner/ form

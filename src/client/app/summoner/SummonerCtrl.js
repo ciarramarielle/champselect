@@ -3,11 +3,11 @@ angular
 	.module("app")
 	.controller("SummonerCtrl", SummonerCtrl);
 
-function SummonerCtrl($scope, riotApiService, $routeParams) {
+function SummonerCtrl($scope, riotApiService, $routeParams, $filter) {
 	var vm = this;
 	vm.summonerName=''
 
-	vm.n = $routeParams.summonerName
+	vm.n = $filter('lowercase')($routeParams.summonerName)
 	// get summoner name from user input
 	if (vm.n) {
 		riotApiService.getSummoner(vm.n)
