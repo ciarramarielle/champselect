@@ -12,8 +12,8 @@ function SummonerCtrl($scope, riotApiService, $routeParams) {
 	riotApiService.getSummoner(vm.n)
 	.then(function(data) {
 		// data --> summonerName
-		vm.summonerName = data.data
-		console.log('getSummoner: ' + data.data);
-		return data.data;
+		vm.summonerName = data.data[vm.n]
+		console.log('getSummoner: ' + data.data[vm.n]);
+		return data.data[vm.n];
 	});
 }

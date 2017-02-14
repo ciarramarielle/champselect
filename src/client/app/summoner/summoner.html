@@ -1,3 +1,8 @@
 <div class="container center-block" style="margin-top: 5%;">
-	<h1>{{ sc.summonerName}}</h1>
+	<h1>Hello</h1>
+	<!-- TODO: get summoner name from user input -->
+	<!-- <input type="text" ng-model="" -->
+	<ul ng-repeat="(key, value) in sc.summonerName">
+		<li>{{key}} | {{value}}</li>
+	</ul>
 </div>
