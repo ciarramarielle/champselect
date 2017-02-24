@@ -3,20 +3,20 @@ angular
 	.module("app")
 	.controller("SummonerCtrl", SummonerCtrl);
 
-function SummonerCtrl($scope, riotApiService, $routeParams, $filter) {
+function SummonerCtrl($scope, riotApiService, $filter) {
+	// href /:stuff --> $routeParams.stuff
 	var vm = this;
-	vm.summonerName=''
 
-	vm.n = $filter('lowercase')($routeParams.summonerName)
-	// get summoner name from user input
-	if (vm.n) {
-		riotApiService.getSummoner(vm.n)
+	vm.getSummoner = function(summonerName) {
+		vm.summonerName= summonerName
+		// summonerName comes from user input. need to lowercase it
+		var lowercaseSummonerName = $filter('lowercase')(summonerName)
+		// todo: need to filter out the whitespaces and symbols
+
+		riotApiService.getSummoner(lowercaseSummonerName)
 		.then(function(data) {
-			// data --> summonerName
-			vm.summonerName = data.data[vm.n]
-			console.log('getSummoner: ' + data.data[vm.n]);
-			return data.data[vm.n];
+			vm.summonerData = data.data[lowercaseSummonerName]
+			return data.data[lowercaseSummonerName];
 		});
 	}
-
 }

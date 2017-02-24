@@ -1,15 +1,17 @@
 <div class="container center-block" style="margin-top: 5%;">
-	<h1>Hello</h1>
-	<form class="form-inline"> <!-- ng-submit="displaySummoner(summonerName)">-->
-		  <div class="form-group">
-		    <label for="summoner">Summoner Name:</label>
-		    <input type="text" class="form-control" id="summoner" ng-model="sc.summoner">
-		  </div>
-		  <a type="submit" class="btn btn-default" href="/summoner/{{sc.summoner}}">Submit</a>
+	<h1>Hello {{sc.summoner}}</h1>
+	<form class="form-inline" ng-submit="sc.getSummoner(sc.summoner)">
+		<div class="form-group">
+			<label for="summoner">Summoner Name:</label>
+			<input type="text" class="form-control" id="summoner" ng-model="sc.summoner">
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
-	<!-- TODO: get summoner name from user input -->
-	<!-- <input type="text" ng-model="" -->
-	<ul ng-if="sc.summonerName" ng-repeat="(key, value) in sc.summonerName">
-		<li>{{key}} | {{value}}</li>
-	</ul>
+
+	<table class="jumbotron" ng-if="sc.summonerData" style="margin: 0 auto; margin-top: 5em;">
+		<tr ng-repeat="(k,v) in sc.summonerData">
+			<td><h2>{{k}}</h2></td>
+			<td style="padding-left: 2em;"><h2>{{v}}</h2></td>
+		</tr>
+	</table>
 </div>
