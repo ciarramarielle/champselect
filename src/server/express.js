@@ -65,6 +65,18 @@ module.exports = function(app, config) {
 				res.send(body);
 		})
 	});
+	app.get('/api/riot/getChampion/:championId', function(req, res) {
+		// let name = 'prxncess'
+		// console.log(req.params.summonerName);
+		request(`https://na.api.pvp.net/api/lol/na/v1.4/champion/by-name/${req.params.championId}?api_key=${config.riot_api_key}`,
+			function(err, response, body) {
+	            if (err) {
+	              res.send(Error('Not able to find champion data.'));
+	            }
+	            // res.send({username: request.username, body: body});
+				res.send(body);
+		})
+	});
 
 
     // For now, route everything else to <views>/index.html

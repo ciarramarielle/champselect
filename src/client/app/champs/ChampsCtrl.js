@@ -3,19 +3,24 @@ angular
 	.module("app")
 	.controller("ChampsCtrl", ChampsCtrl);
 
-function ChampsCtrl($scope, riotApiService) {
-	var vm = this;
-	// vm.resumeData = dataService.fakeResumeData();
-	var champions = []
+function ChampsCtrl($scope, $routeParams, riotApiService) {
+	// injector ^ ...
+	// constructor...
+	let vm = this; // do I need this?
 
-	riotApiService.getChampions()
-	    .then(function(data){
-	        console.table(data.data);
-			let json = data.data.data;
-			for (var i in json) {
-				champions.push(json[i]);
-			}
-			vm.champions = champions
-	        return data.data;
-	    });
+	//$onInit() ...
+	vm.champions=[]
+	riotApiService.getChampions().then(function(data){
+        console.table(data.data);
+		let json = data.data.data;
+		for (var i in json) {
+			vm.champions.push(json[i]);
+		}
+        return data.data;
+    });
+
+	if ($routeParams.championId) {
+		console.log("Hello " + $routeParams.championId)
+		alert("Selected champ id: " + $routeParams.championId)
+	}
 }

@@ -1,7 +1,7 @@
 <div class="container center-block" style="margin-top: 5%;">
 	<input id="champ_search" ng-model="search.name" type="text" placeholder="Search for champ..."/><br/>
 	<ul class="flex-container" ng-repeat="champion in rc.champions | orderBy: 'name' | filter:search">
-		<li class="flex-item">{{ champion.name }}</li>
+		<li class="flex-item"><a href="/champs/{{champion.id}}">{{ champion.name }}</a></li>
 	</ul>
 </div>
 <!-- todo: each champ to link to a /champ/champName page -->

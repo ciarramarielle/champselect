@@ -16,6 +16,11 @@ angular
 	            controller: "ChampsCtrl",
 	            controllerAs: "rc"
 		    })
+		    .when("/champs/:championId", {
+		    	templateUrl: "app/champs/champs.html",
+	            controller: "ChampsCtrl",
+	            controllerAs: "rc"
+		    })
 			.when("/summoner/:summonerName/", { // summoner route doesn't work in summoner.html
 				templateUrl: "app/summoner/summoner.html",
 				controller: "SummonerCtrl",

@@ -1,16 +1,20 @@
 'use strict'
 angular
 	.module("app")
-	.controller("SummonerCtrl", SummonerCtrl);
+	.controller("SummonerCtrl", SummonerCtrl)
+	.filter('alphanumeric', function () {
+	    return function (value) {
+	        return (!value) ? '' : value.replace(/[^a-z0-9]/gi, '');
+	    };
+	});
 
 function SummonerCtrl($scope, riotApiService, $filter) {
 	// href /:stuff --> $routeParams.stuff
 	var vm = this;
 
 	vm.getSummoner = function(summonerName) {
-		vm.summonerName= summonerName
-		// summonerName comes from user input. need to lowercase it
-		var lowercaseSummonerName = $filter('lowercase')(summonerName)
+		vm.summonerName= $filter('alphanumeric')(summonerName)
+		var lowercaseSummonerName = $filter('lowercase')(vm.summonerName)
 		// todo: need to filter out the whitespaces and symbols
 
 		riotApiService.getSummoner(lowercaseSummonerName)
