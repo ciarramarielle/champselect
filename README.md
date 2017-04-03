@@ -15,7 +15,6 @@ This is a place for me to practice using MEAN Stack web development with externa
 ```RIOT_API_KEY=your-api-key```
 > Fill in `your-api-key` with your development key.
 
-
-##### TODO:
-1. Fix summoner/<name> to trim all whitespace and special characters
-2. Allow pressing enter to submit summoner/ form
+## Note: April 3, 2017
+Heroku has not been updated with latest commit (because still WIP)
+Issues not addressed yet 
