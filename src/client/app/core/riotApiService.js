@@ -43,21 +43,23 @@
         }
 
         function getSummoner(summonerName) {
-            return $http({
-                    method: 'GET',
-                    url: '/api/riot/getSummoner/' + summonerName
-                })
-                .then(function(data, status, headers, config) {
-                        return data; //send summonerName??
-                    },
-                    // on fail
-                    function(data, status, headers, config) {
-                        // wat do??
-                    })
-                .catch(function(err) {
-                    console.log("Error: " + e);
-                });
+            return $http.get(`api/riot/getSummoner/${summonerName}`)
         }
+        //     return $http({
+        //             method: 'GET',
+        //             url: '/api/riot/getSummoner/' + summonerName
+        //         })
+        //         .then(function(data, status, headers, config) {
+        //                 return data; //send summonerName??
+        //             },
+        //             // on fail
+        //             function(data, status, headers, config) {
+        //                 // wat do??
+        //             })
+        //         .catch(function(err) {
+        //             console.log("Error: " + e);
+        //         });
+        // }
 
 
 

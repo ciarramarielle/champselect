@@ -8,9 +8,9 @@ angular
         //      Right now, <views> = mean_start/src/client/
         $locationProvider.html5Mode(true);
         $routeProvider
-	        .when("/", {
-	            templateUrl: "app/home/home.html"
-	        })
+	        // .when("/", {
+	        //     templateUrl: "app/home/home.html"
+	        // })
 		    .when("/champs/", {
 		    	templateUrl: "app/champs/champs.html",
 	            controller: "ChampsCtrl",
@@ -27,6 +27,12 @@ angular
 				controllerAs: "sc"
 			})
 			.when("/summoner/", { // summoner route doesn't work in summoner.html
+				templateUrl: "app/summoner/summoner.html",
+				controller: "SummonerCtrl",
+				controllerAs: "sc"
+			})
+			.otherwise({
+				// FIXME: home "/"
 				templateUrl: "app/summoner/summoner.html",
 				controller: "SummonerCtrl",
 				controllerAs: "sc"

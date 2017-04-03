@@ -1,0 +1,98 @@
+* {
+    font-family: "Lobster", helvetica;
+    /* was cursive */
+}
+
+body {
+  background-image: url("../definitely_not_bg.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+/* LAYOUT */
+nav {
+    margin-bottom: 40px;
+}
+
+.navbar  {
+  background: rgba(0,0,0,1);
+  color: white;
+  border: 0;
+  font-size: 2em;
+}
+
+footer {
+  color: white;
+}
+
+/* SUMMONER */
+.summoner {
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.summoner > h1 {
+  font-size: 10em;
+}
+
+input[type="text"] {
+  font-size: 4em;
+  padding: 1em;
+  background: rgba(0,0,0,0.7);
+  text-align: center;
+  font-color: white;
+}
+
+.glyphicon {
+  font-size: 2em;
+}
+
+/* CHAMPS */
+/* should be under search box*/
+.champ-block {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.5);
+  /*border: 2px solid white;*/
+  text-align: center;
+  /*should be flex EACH*/
+  margin-top: 0;
+  padding-top: 40px;
+}
+
+
+
+
+/* these are from A Complete Guide to CSS Flex Box for now... will change later */
+/*.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: inline-flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;*/
+  /*align-content: space-between;*/
+  /*
+
+.flex-item {
+  background: lightpink;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+  margin-right: 10px;
+
+  line-height: 150px;
+  color: white;*/
+  /*font-weight: bold;*/
+ /* font-size: 2em;
+  text-align: center;
+}*/

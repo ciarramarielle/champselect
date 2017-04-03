@@ -1,11 +1,13 @@
-<div class="container center-block" style="margin-top: 5%;">
-	<h1>Hello {{sc.summoner}}</h1>
+<div class="summoner container center-block" style="margin-top: 5%;">
+	<h1>Hello {{sc.summoner}}!</h1>
 	<form class="form-inline" ng-submit="sc.getSummoner(sc.summoner)">
-		<div class="form-group">
-			<label for="summoner">Summoner Name:</label>
-			<input type="text" class="form-control" id="summoner" ng-model="sc.summoner">
+		<div class="form-group has-feedback right-inner-addon input-group">
+			<!-- <label for="summoner">Summoner Name:</label> -->
+		    <span class="glyphicon glyphicon-search fa-4x form-control-feedback input-group-addon"></span>
+
+			<input type="text" class="form-control" autocomplete="off" id="summoner" ng-model="sc.summoner" placeholder="Summoner Name">
 		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
+		<!-- <input type="submit" class="btn btn-default" value="Submit"> -->
 	</form>
 
 	<table class="jumbotron" ng-if="sc.summonerData" style="margin: 0 auto; margin-top: 5em;">
