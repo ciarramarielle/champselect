@@ -54,7 +54,7 @@ input[type="text"] {
   border-radius: 100%;
   width: 100px;
   height: 100px;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,1);
   /*border: 2px solid white;*/
   text-align: center;
   /*should be flex EACH*/

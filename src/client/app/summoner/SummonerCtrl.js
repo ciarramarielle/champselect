@@ -14,25 +14,25 @@ function SummonerCtrl($scope, riotApiService, $filter, $log) {
 	vm.$log = $log;
 
 	/* ONLINE */
-	// vm.getSummoner = function(summonerName) {
-	// 	vm.summonerName= $filter('alphanumeric')(summonerName)
-	// 	var lowercaseSummonerName = $filter('lowercase')(vm.summonerName)
-	// 	// todo: need to filter out the whitespaces and symbols
+	vm.getSummoner = function(summonerName) {
+		vm.summonerName= $filter('alphanumeric')(summonerName)
+		var lowercaseSummonerName = $filter('lowercase')(vm.summonerName)
+		// todo: need to filter out the whitespaces and symbols
 
-	// 	riotApiService.getSummoner(lowercaseSummonerName)
-	// 	.then(function(data) {
-	// 		vm.summonerData = data.data[lowercaseSummonerName]
-	// 		return data.data[lowercaseSummonerName];
-	// 	}, function(error) {
-	// 		vm.$log.info("Could not find summoner: " + error.data)
-	// 	});
-	// }
+		riotApiService.getSummoner(lowercaseSummonerName)
+		.then(function(data) {
+			vm.summonerData = data.data[lowercaseSummonerName]
+			return data.data[lowercaseSummonerName];
+		}, function(error) {
+			vm.$log.info("Could not find summoner: " + error.data)
+		});
+	}
 
 	/* MOCK */
-	vm.getSummoner = function(summonerName) {
-		vm.summonerData = { key: 'value'}
-		return {
-			key: 'valueReturn'
-		}
-	}
+	// vm.getSummoner = function(summonerName) {
+	// 	vm.summonerData = { key: 'value'}
+	// 	return {
+	// 		key: 'valueReturn'
+	// 	}
+	// }
 }

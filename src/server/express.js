@@ -47,10 +47,10 @@ module.exports = function(app, config) {
             if (err) {
               res.send(Error('Not able to find champion data.'));
             }
-            // res.send(body);
+            res.send(body);
 
             /* MOCK */
-            res.send('Hello????')
+            // res.send('Hello????')
           }
         )
     });
@@ -65,10 +65,10 @@ module.exports = function(app, config) {
 	              res.send(Error('Not able to find summoner data.'));
 	            }
 	            // res.send({username: request.username, body: body});
-				// res.send(body);
+				res.send(body);
 
                 /* MOCK */
-                res.send('Helloooo???')
+                // res.send('Helloooo???')
 		})
 	});
 	app.get('/api/riot/getChampion/:championId', function(req, res) {
