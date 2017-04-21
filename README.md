@@ -15,6 +15,5 @@ This is a place for me to practice using MEAN Stack web development with externa
 ```RIOT_API_KEY=your-api-key```
 > Fill in `your-api-key` with your development key.
 
-## Note: April 3, 2017
-Heroku has not been updated with latest commit (because still WIP)
-Issues not addressed yet 
+##### To build...
+```npm run build```
