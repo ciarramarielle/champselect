@@ -20,3 +20,6 @@ This is a place for me to practice using MEAN Stack web development with externa
 
 #### Then run...
 ```node server.js```
+
+#### Under testing...
+```npm start```
