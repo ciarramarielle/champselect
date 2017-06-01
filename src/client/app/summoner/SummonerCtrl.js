@@ -8,7 +8,7 @@ angular
 	    };
 	});
 
-function SummonerCtrl($scope, riotApiService, $filter, $log) {
+function SummonerCtrl ($scope, riotApiService, $filter, $log) {
 	// href /:stuff --> $routeParams.stuff
 	var vm = this;
 	vm.$log = $log;
@@ -17,22 +17,20 @@ function SummonerCtrl($scope, riotApiService, $filter, $log) {
 	vm.getSummoner = function(summonerName) {
 		vm.summonerName= $filter('alphanumeric')(summonerName)
 		var lowercaseSummonerName = $filter('lowercase')(vm.summonerName)
-		// todo: need to filter out the whitespaces and symbols
 
 		riotApiService.getSummoner(lowercaseSummonerName)
-		.then(function(data) {
-			vm.summonerData = data.data[lowercaseSummonerName]
-			return data.data[lowercaseSummonerName];
-		}, function(error) {
-			vm.$log.info("Could not find summoner: " + error.data)
-		});
-	}
+			.then((data) => {
+				vm.$log.info("fgsfgs: " + JSON.stringify(data))
 
-	/* MOCK */
-	// vm.getSummoner = function(summonerName) {
-	// 	vm.summonerData = { key: 'value'}
-	// 	return {
-	// 		key: 'valueReturn'
-	// 	}
-	// }
+				vm.summonerData = data.data
+				riotApiService.getMatchlist(vm.summonerData.accountId)
+					.then((d) => {
+						vm.$log.info('got this data back', d)
+						return data.data
+					})
+			})
+			.catch((error) => {
+				vm.$log.info("Could not find summoner: " + error.data)
+			})
+	}
 }

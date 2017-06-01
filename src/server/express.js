@@ -55,11 +55,10 @@ module.exports = function(app, config) {
         )
     });
 
-	// app.get('/api/riot/getSummoner/:summonerName', function(req, res) {
 	app.get('/api/riot/getSummoner/:summonerName', function(req, res) {
 		// let name = 'prxncess'
 		// console.log(req.params.summonerName);
-		request(`https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/${req.params.summonerName}?api_key=${config.riot_api_key}`,
+		request(`https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/${req.params.summonerName}?api_key=${config.riot_api_key}`,
 			function(err, response, body) {
 	            if (err) {
 	              res.send(Error('Not able to find summoner data.'));
@@ -71,6 +70,7 @@ module.exports = function(app, config) {
                 // res.send('Helloooo???')
 		})
 	});
+
 	app.get('/api/riot/getChampion/:championId', function(req, res) {
 		// let name = 'prxncess'
 		// console.log(req.params.summonerName);
@@ -83,6 +83,17 @@ module.exports = function(app, config) {
 				res.send(body);
 		})
 	});
+
+    app.get('/api/riot/matchlist/:accountId', function (req, res) {
+            // request(`https://na.api.pvp.net/api/lol/na/v1.4/champion/by-name/${req.params.championId}?api_key=${config.riot_api_key}`,
+            request(`https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/${req.params.accountId}?api_key=${config.riot_api_key}`,
+                function(err, response, body) {
+                    if (err) {
+                    res.send(Error('Not able to find matchlist data.'));
+                    }
+                    res.send(body);
+            })
+        });
 
 
     // For now, route everything else to <views>/index.html

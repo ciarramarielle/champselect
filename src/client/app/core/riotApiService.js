@@ -45,27 +45,15 @@
         function getSummoner(summonerName) {
             return $http.get(`api/riot/getSummoner/${summonerName}`)
         }
-        //     return $http({
-        //             method: 'GET',
-        //             url: '/api/riot/getSummoner/' + summonerName
-        //         })
-        //         .then(function(data, status, headers, config) {
-        //                 return data; //send summonerName??
-        //             },
-        //             // on fail
-        //             function(data, status, headers, config) {
-        //                 // wat do??
-        //             })
-        //         .catch(function(err) {
-        //             console.log("Error: " + e);
-        //         });
-        // }
 
-
+        function getMatchlist(summonerId) {
+            return $http.get(`api/riot/matchlist/${summonerId}`)
+        }
 
         return {
             getChampions: getChampions,
-            getSummoner: getSummoner
+            getSummoner: getSummoner,
+            getMatchlist: getMatchlist
         }
     }
 })();
