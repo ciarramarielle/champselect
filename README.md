@@ -15,5 +15,8 @@ This is a place for me to practice using MEAN Stack web development with externa
 ```RIOT_API_KEY=your-api-key```
 > Fill in `your-api-key` with your development key.
 
-##### To build...
+##### To build es6 style...
 ```npm run build```
+
+#### Then run...
+```node server.js```
