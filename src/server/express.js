@@ -48,38 +48,26 @@ module.exports = function(app, config) {
               res.send(Error('Not able to find champion data.'));
             }
             res.send(body);
-
-            /* MOCK */
-            // res.send('Hello????')
           }
         )
     });
 
 	app.get('/api/riot/getSummoner/:summonerName', function(req, res) {
-		// let name = 'prxncess'
-		// console.log(req.params.summonerName);
 		request(`https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/${req.params.summonerName}?api_key=${config.riot_api_key}`,
 			function(err, response, body) {
 	            if (err) {
 	              res.send(Error('Not able to find summoner data.'));
 	            }
-	            // res.send({username: request.username, body: body});
 				res.send(body);
-
-                /* MOCK */
-                // res.send('Helloooo???')
 		})
 	});
 
 	app.get('/api/riot/getChampion/:championId', function(req, res) {
-		// let name = 'prxncess'
-		// console.log(req.params.summonerName);
 		request(`https://na.api.pvp.net/api/lol/na/v1.4/champion/by-name/${req.params.championId}?api_key=${config.riot_api_key}`,
 			function(err, response, body) {
 	            if (err) {
 	              res.send(Error('Not able to find champion data.'));
 	            }
-	            // res.send({username: request.username, body: body});
 				res.send(body);
 		})
 	});
@@ -95,13 +83,19 @@ module.exports = function(app, config) {
             })
         });
 
+    app.get('/api/riot/champion/:champId', (req, res) => {
+        request(`https://na1.api.riotgames.com/lol/static-data/v3/champions/${req.params.champId}?api_key=${config.riot_api_key}`,
+            (err, response, body) => {
+                if (err) {
+                    res.send(Error('Not able to find matchlist data.'))
+                }
+                res.send(body)
+            })
+    })
 
     // For now, route everything else to <views>/index.html
     app.get("*", function(req, res) {
         res.render("index.html");
         // looks inside VIEWS
     });
-
-    // module.exports = router
-
 };

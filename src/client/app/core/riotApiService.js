@@ -50,10 +50,16 @@
             return $http.get(`api/riot/matchlist/${summonerId}`)
         }
 
+        // FIXME Use champions instead
+        function getChamp(champId) { //v3
+            return $http.get(`api/riot/champion/${champId}`)
+        }
+
         return {
             getChampions: getChampions,
             getSummoner: getSummoner,
-            getMatchlist: getMatchlist
+            getMatchlist: getMatchlist,
+            getChamp: getChamp
         }
     }
 })();

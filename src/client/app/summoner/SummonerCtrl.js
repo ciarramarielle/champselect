@@ -8,24 +8,42 @@ angular
 	    };
 	});
 
-function SummonerCtrl ($scope, riotApiService, $filter, $log) {
+function SummonerCtrl ($scope, riotApiService, $filter, $log, _) {
 	// href /:stuff --> $routeParams.stuff
 	var vm = this;
 	vm.$log = $log;
 
 	/* ONLINE */
+	// FIXME: Change getSummoner to something else...
+	// 	we're gonna get all the champs summoner has ever played
 	vm.getSummoner = function(summonerName) {
 		vm.summonerName= $filter('alphanumeric')(summonerName)
 		var lowercaseSummonerName = $filter('lowercase')(vm.summonerName)
 
+		vm.toDisplay = []
 		riotApiService.getSummoner(lowercaseSummonerName)
 			.then((data) => {
-				vm.$log.info("fgsfgs: " + JSON.stringify(data))
-
-				vm.summonerData = data.data
-				riotApiService.getMatchlist(vm.summonerData.accountId)
+				const summonerData = data.data
+				riotApiService.getMatchlist(summonerData.accountId)
 					.then((d) => {
-						vm.$log.info('got this data back', d)
+						const stuff = d.data.matches || {}
+						const allChamps = _.groupBy(stuff, 'champion')
+						_.each(allChamps, (champ) => {
+							let championId = champ[0].champion
+							let used = champ.length
+							let championName
+							riotApiService.getChamp(championId)
+								.then((c) => {
+									vm.$log.info(used, c.data.name)
+									vm.toDisplay.push({
+										champion: c.data.name,
+										used: used
+									})
+
+									// FIXME: This should be outside _.each but doesnt render
+									vm.summonerData = _.sortBy(vm.toDisplay, 'used').reverse()
+								})
+						})
 						return data.data
 					})
 			})

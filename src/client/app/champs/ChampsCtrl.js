@@ -19,15 +19,6 @@ function ChampsCtrl($scope, $routeParams, riotApiService) {
         return data.data;
     });
 
- // 	vm.champions = [ {
- // 		name: 'C1',
- // 		id: '1'
- // 	},
- // 	{
- // 		name: 'C2',
- // 		id: '2'
- // 	}]
-
 	if ($routeParams.championId) {
 		console.log("Hello " + $routeParams.championId)
 		alert("Selected champ id: " + $routeParams.championId)

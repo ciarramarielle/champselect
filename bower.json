@@ -12,6 +12,8 @@
     "angular": "^1.6.1",
     "bootstrap": "^3.3.7",
     "angular-route": "^1.6.1",
-    "angular-sanitize": "^1.6.1"
+    "angular-sanitize": "^1.6.1",
+    "underscore": "^1.8.3",
+    "angular-underscore-module": "^1.0.3"
   }
 }

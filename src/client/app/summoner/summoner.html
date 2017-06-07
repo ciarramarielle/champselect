@@ -11,9 +11,9 @@
 	</form>
 
 	<table class="jumbotron" ng-if="sc.summonerData" style="margin: 0 auto; margin-top: 5em; background: rgba(0,0,0,0);">
-		<tr ng-repeat="(k,v) in sc.summonerData">
-			<td><h2>{{k}}</h2></td>
-			<td style="padding-left: 2em;"><h2>{{v}}</h2></td>
+		<tr ng-repeat="item in sc.summonerData">
+			<td><h2>{{item.champion}}</h2></td>
+			<td style="padding-left: 2em;"><h2>{{item.used}}</h2></td>
 		</tr>
 	</table>
 </div>
