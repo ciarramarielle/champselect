@@ -40,7 +40,7 @@ footer {
 input[type="text"] {
   font-size: 4em;
   padding: 1em;
-  background: rgba(0,0,0,0.7);
+  /*background: rgba(0,0,0,0.7);*/
   text-align: center;
   font-color: white;
 }
