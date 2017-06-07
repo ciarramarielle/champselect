@@ -1,12 +1,13 @@
 * {
-    font-family: "Lobster", helvetica;
+    font-family: "Barrio", helvetica;
     /* was cursive */
 }
 
 body {
-  background-image: url("../definitely_not_bg.jpg");
+  /*background-image: url("../definitely_not_bg.jpg");*/
   background-position: center;
   background-size: cover;
+  background: linear-gradient(to right, rgba(164,217,245,1) 0%, rgba(247,202,244,1) 100%);
 }
 
 /* LAYOUT */
@@ -67,37 +68,3 @@ input[type="text"] {
 	list-style: none;
 	background: rgba(0,0,0,0);
 }
-
-
-
-/* these are from A Complete Guide to CSS Flex Box for now... will change later */
-/*.flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: inline-flex;
-
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;*/
-  /*align-content: space-between;*/
-  /*
-
-.flex-item {
-  background: lightpink;
-  padding: 5px;
-  width: 200px;
-  height: 150px;
-  margin-top: 10px;
-  margin-right: 10px;
-
-  line-height: 150px;
-  color: white;*/
-  /*font-weight: bold;*/
- /* font-size: 2em;
-  text-align: center;
-}*/
