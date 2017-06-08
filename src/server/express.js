@@ -1,10 +1,9 @@
 // This is where I can configure EXPRESSJS.
-var express = require("express"),
-    bodyParser = require("body-parser"),
-    // router = express.Router(),
-    request = require("request");
+const express = require("express")
+const bodyParser = require("body-parser")
+const request = require("request")
 
-module.exports = function(app, config) {
+module.exports = (app, config) => {
     app.use(bodyParser.urlencoded({
         extended: true
     })); // enable url-encoded bodies
