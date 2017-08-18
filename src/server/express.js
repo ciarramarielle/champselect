@@ -40,7 +40,7 @@ module.exports = (app, config) => {
 
 
 	/* RIOT API ROUTES */
-	require('./routes/riotapi')(app)
+	require('./routes/riotapi')(app, config)
 
     // For now, route everything else to <views>/index.html
     app.get("*", function(req, res) {
